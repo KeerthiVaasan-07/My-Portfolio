@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #090909;
+  --bg-secondary: #111111;
+  --surface: #191919;
+  --elevated: #222222;
+  --text-primary: #F2F0EB;
+  --text-secondary: #969696;
+  --text-muted: #626262;
+  --accent: #A78BFA;
+  --accent-gold: #B99B72;
+  --metallic: #D5D5D5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #090909;
+  color: #F2F0EB;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #090909;
+  color: #F2F0EB;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A78BFA;
+}
+
+/* Selection */
+::selection {
+  background: rgba(167, 139, 250, 0.3);
+  color: #F2F0EB;
+}
+
+/* Editorial subtle noise overlay */
+.obsidian-grain {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Subtle border glow utility */
+.border-glow-accent {
+  box-shadow: 0 0 25px -5px rgba(167, 139, 250, 0.15);
+}
+
+.border-glow-gold {
+  box-shadow: 0 0 25px -5px rgba(185, 155, 114, 0.15);
+}
+
+/* Glassmorphism obsidian */
+.obsidian-panel {
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.obsidian-panel:hover {
+  border-color: rgba(167, 139, 250, 0.25);
+}
+
+/* Monospace cyber badge */
+.cyber-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Hide default cursor on desktop when custom cursor active */
+@media (min-width: 1024px) {
+  .has-custom-cursor {
+    cursor: none;
+  }
+  .has-custom-cursor a,
+  .has-custom-cursor button,
+  .has-custom-cursor [role="button"],
+  .has-custom-cursor input,
+  .has-custom-cursor textarea {
+    cursor: none;
+  }
+}
