@@ -4,6 +4,7 @@ import { ArrowDown, Download, Shield } from 'lucide-react';
 import { HeroScene } from '../three/scenes/HeroScene';
 import { personalData } from '../../data/personal';
 import { cyberAudio } from '../../utils/audio';
+import { GithubIcon, LinkedinIcon } from '../ui/BrandIcons';
 
 interface HeroSectionProps {
   onExploreClick: () => void;
@@ -47,10 +48,33 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex items-center gap-2 text-[11px] text-editorial-muted uppercase tracking-wider"
+          className="flex items-center gap-3 text-[11px] text-editorial-muted uppercase tracking-wider"
         >
-          <Shield className="w-3.5 h-3.5 text-cyber-accent" />
-          <span>CYBERSECURITY SPECIALIZATION • III SEMESTER</span>
+          <div className="flex items-center gap-1.5">
+            <Shield className="w-3.5 h-3.5 text-cyber-accent" />
+            <span>CYBERSECURITY SPECIALIZATION • III SEMESTER</span>
+          </div>
+
+          <div className="hidden sm:flex items-center gap-2 pl-3 border-l border-white/10">
+            <a
+              href={personalData.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-editorial-secondary hover:text-cyber-accent transition-colors"
+              title="LinkedIn Profile"
+            >
+              <LinkedinIcon className="w-3.5 h-3.5" />
+            </a>
+            <a
+              href={personalData.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-editorial-secondary hover:text-cyber-accent transition-colors"
+              title="GitHub Profile"
+            >
+              <GithubIcon className="w-3.5 h-3.5" />
+            </a>
+          </div>
         </motion.div>
       </div>
 
@@ -119,13 +143,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </p>
         </motion.div>
 
-        {/* Action CTAs */}
+        {/* Action CTAs + Social Profile Links */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.85 }}
-          className="mt-8 flex flex-wrap items-center gap-4"
+          className="mt-8 flex flex-wrap items-center gap-3.5"
         >
+          {/* Explore Button */}
           <button
             onClick={() => {
               cyberAudio.playClick();
@@ -137,33 +162,84 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-1" />
           </button>
 
+          {/* Download Resume Button */}
           <button
             onClick={() => {
               cyberAudio.playClick();
               onDownloadResume();
             }}
-            className="px-7 py-4 rounded-full bg-[#141414] border border-white/15 text-editorial-primary font-mono text-xs font-semibold tracking-wider hover:border-cyber-accent/60 hover:text-cyber-accent transition-all duration-300 flex items-center gap-2.5 backdrop-blur-xl"
+            className="px-6 py-4 rounded-full bg-[#141414] border border-white/15 text-editorial-primary font-mono text-xs font-semibold tracking-wider hover:border-cyber-accent/60 hover:text-cyber-accent transition-all duration-300 flex items-center gap-2.5 backdrop-blur-xl"
           >
             <Download className="w-4 h-4 text-cyber-accent" />
-            <span>DOWNLOAD RESUME</span>
+            <span>RESUME</span>
           </button>
+
+          {/* LinkedIn Profile Button */}
+          <a
+            href={personalData.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => cyberAudio.playClick()}
+            className="px-5 py-4 rounded-full bg-[#141414] border border-white/15 hover:border-cyber-accent text-[#F2F0EB] hover:text-cyber-accent font-mono text-xs font-semibold tracking-wider flex items-center gap-2.5 transition-all duration-300 backdrop-blur-xl group"
+            title="Open LinkedIn Profile"
+          >
+            <LinkedinIcon className="w-4 h-4 text-cyber-accent group-hover:scale-110 transition-transform" />
+            <span>LINKEDIN</span>
+          </a>
+
+          {/* GitHub Profile Button */}
+          <a
+            href={personalData.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => cyberAudio.playClick()}
+            className="px-5 py-4 rounded-full bg-[#141414] border border-white/15 hover:border-cyber-accent text-[#F2F0EB] hover:text-cyber-accent font-mono text-xs font-semibold tracking-wider flex items-center gap-2.5 transition-all duration-300 backdrop-blur-xl group"
+            title="Open GitHub Profile"
+          >
+            <GithubIcon className="w-4 h-4 text-editorial-metallic group-hover:scale-110 transition-transform" />
+            <span>GITHUB</span>
+          </a>
         </motion.div>
       </div>
 
-      {/* Bottom Status & Section Prompt */}
+      {/* Bottom Status, Socials & Section Prompt */}
       <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-white/10 font-mono text-xs text-editorial-muted">
         <div className="flex items-center gap-3">
           <span className="w-1.5 h-1.5 rounded-full bg-cyber-emerald" />
           <span className="text-editorial-secondary">{personalData.status}</span>
         </div>
 
-        <button
-          onClick={onExploreClick}
-          className="flex items-center gap-2 text-editorial-secondary hover:text-[#F2F0EB] transition-colors"
-        >
-          <span>PROCEED TO 02 ABOUT</span>
-          <ArrowDown className="w-3.5 h-3.5 animate-bounce text-cyber-accent" />
-        </button>
+        <div className="flex items-center gap-5">
+          <div className="flex items-center gap-3 text-editorial-secondary">
+            <a
+              href={personalData.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-cyber-accent transition-colors flex items-center gap-1.5"
+            >
+              <LinkedinIcon className="w-3.5 h-3.5" />
+              <span>LinkedIn</span>
+            </a>
+            <span>•</span>
+            <a
+              href={personalData.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-cyber-accent transition-colors flex items-center gap-1.5"
+            >
+              <GithubIcon className="w-3.5 h-3.5" />
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          <button
+            onClick={onExploreClick}
+            className="flex items-center gap-2 text-editorial-secondary hover:text-[#F2F0EB] transition-colors pl-4 border-l border-white/10"
+          >
+            <span>PROCEED TO 02 ABOUT</span>
+            <ArrowDown className="w-3.5 h-3.5 animate-bounce text-cyber-accent" />
+          </button>
+        </div>
       </div>
     </section>
   );
