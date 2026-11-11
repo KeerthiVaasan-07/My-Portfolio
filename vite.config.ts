@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: './', // Ensures assets load correctly on GitHub Pages (e.g. /My-Portfolio/) and custom domains
   plugins: [react()],
   build: {
     chunkSizeWarningLimit: 1200,
