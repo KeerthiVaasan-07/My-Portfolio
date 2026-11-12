@@ -193,15 +193,6 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                   })}
                 </div>
               </div>
-
-              {/* PDF location hint for user */}
-              <div className="p-4 rounded-xl bg-cyber-accent/5 border border-cyber-accent/20 text-xs font-mono text-editorial-secondary">
-                <span className="text-cyber-accent font-bold">PDF ASSET PATH: </span>
-                <span>public/resume/Keerthi-Vaasan-Resume.pdf</span>
-                <p className="text-[11px] text-editorial-muted mt-1">
-                  Place your actual PDF at this location to enable instant direct file downloads.
-                </p>
-              </div>
             </div>
           </motion.div>
         </div>

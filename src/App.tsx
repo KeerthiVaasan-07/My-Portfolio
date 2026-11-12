@@ -62,7 +62,7 @@ export function App() {
 
   // Resume Download Handler
   const handleDownloadResume = () => {
-    const resumePath = '/resume/Keerthi-Vaasan-Resume.pdf';
+    const resumePath = `${import.meta.env.BASE_URL}resume/Keerthi-Vaasan-Resume.pdf`;
 
     // Trigger direct browser download
     const link = document.createElement('a');
